@@ -96,19 +96,73 @@
 				},
 				{
 					"name": "Get secretInfo without Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": null
+						"url": {
+							"raw": "https://postman-lab2.azurewebsites.net/SecretInformation",
+							"protocol": "https",
+							"host": [
+								"postman-lab2",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"SecretInformation"
+							]
+						}
 					},
 					"response": []
 				},
 				{
 					"name": "get secretInfo with Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
-						"header": [],
-						"url": null
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{postmanLab2Token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://postman-lab2.azurewebsites.net/SecretInformation",
+							"protocol": "https",
+							"host": [
+								"postman-lab2",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"SecretInformation"
+							]
+						}
 					},
 					"response": []
 				}
